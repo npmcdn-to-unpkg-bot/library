@@ -1,0 +1,77 @@
+.text-center{
+    text-align: center;
+}
+
+#latest-books{
+    overflow: auto;
+    .latest-book-content{
+        height: 50%;
+        overflow: auto;
+    }
+}
+
+.article-content{
+    height: 44%;
+    overflow: auto;
+}
+
+.thumbnail{
+    max-height: 400px;
+    height: 350px;
+    overflow: auto;
+}
+
+.open_info{
+    text-align: center;
+    ul{
+        list-style-type: none;
+        padding: 0;
+        display: inline-table;
+        li{
+            margin-bottom: 20px;
+        }
+    }
+    .day{
+        text-align: left;
+        width: 160px;
+        display: inline-block;
+        float: left;
+        font-weight: bold;
+    }
+}
+
+.banner{
+    background: url("/images/banner.gif");
+    background-size: 100% 100%;
+    height: 15%;
+}
+
+.prev, .next{
+   width: 50px;
+   cursor: pointer;
+}
+.latest-book-navigation, .articles-navigation{
+    text-align: center;
+    a:hover
+    {
+        text-decoration: none;
+    }
+    a{
+        img:active{
+            opacity: 0.5;
+        }
+    }
+}
+
+.article:hover{
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+.active_tab{
+    background: #D4D1D1;
+    a{
+        color: black !important;
+    }
+}
+

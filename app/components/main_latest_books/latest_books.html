@@ -1,0 +1,20 @@
+<div class="media latest-book-content">
+     <a href="#" class="pull-left"><img alt="Bootstrap Media Preview" height="200" src="{{book.image}}" class="media-object" /></a>
+    <div class="media-body">
+        <h4 class="media-heading">
+                {{book.name}} {{book.surname}}
+        </h4>
+        <h2>
+            {{book.title}}
+        </h2>
+        {{book.description}}
+    </div>
+</div>
+<div class="latest-book-navigation">
+    <a (click)="prev()">
+        <img src="/images/prev.png" alt="prev" class="prev"/>
+    </a>
+    <a (click)="next()">
+        <img src="/images/next.png" alt="next" class="next"/>
+    </a>
+</div>
