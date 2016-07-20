@@ -1,0 +1,34 @@
+<div class="container-fluid search-content">
+	<div class="row">
+            <div class="col-md-6">
+                <select>
+                  <option *ngFor="let opt of options();" (click)="setType(opt)"> {{selectData[opt]}}</option>
+                </select>
+                <select *ngIf="type == 'category'">
+                  <option *ngFor="let cat of getCategories();" (click)="setCategory(categories[cat])"> {{cat}}</option>
+                </select>
+                <input *ngIf="type != 'category'" type="text" id="search" [(ngModel)] = "text"/>
+                <a class="btn btn-info" (click)="search()">Szukaj</a>
+                <ul *ngIf="books">
+                    <li class="table-inverse" *ngFor="let book of books"> <a class="book-list-item" (click)="onSelect(book)"><strong>{{book.title}}</strong>, {{book.name}} {{book.surname}}</a></li>
+                </ul>
+                <div *ngIf="books.length > 0" class="col-md-12">
+			<ul #paginate class="pagination">
+				<li>
+					<a (click)="minusPage()">Prev</a>
+				</li>
+				<li *ngFor="let page of allPages">
+					<a (click)="setPage(page)">{{page}}</a>
+				</li>
+				<li>
+					<a (click)="plusPage()">Next</a>
+				</li>
+			</ul>
+		</div>
+            </div>
+            <div class="col-md-6">
+                <router-outlet></router-outlet>
+            </div>
+		
+	</div>
+</div>

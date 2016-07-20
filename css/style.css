@@ -51,7 +51,16 @@
   cursor: pointer;
   opacity: 0.4; }
 
-.active_tab {
-  background: #D4D1D1; }
-  .active_tab a {
-    color: black !important; }
+.active_tab a {
+  color: white !important; }
+
+.book-description-content {
+  height: 315px;
+  overflow: auto; }
+
+.search-content {
+  width: 80%; }
+
+.book-list-item {
+  color: black;
+  cursor: pointer; }

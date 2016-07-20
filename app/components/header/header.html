@@ -5,12 +5,11 @@
     </div>
       <ul #menu class="nav navbar-nav">
         <li class="active_tab" (click)="menuClick(0)"><a [routerLink]="['/home']">Strona Główna</a></li>
-      <li (click)="menuClick(1)"><a [routerLink]="['/test']">Page 1</a></li>
-      <li (click)="menuClick(2)"><a href="#">Page 2</a></li>
+      <li (click)="menuClick(1)"><a [routerLink]="['/list-books']">Książki</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Stwórz konto</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
     </ul>
   </div>
 </nav>

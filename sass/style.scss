@@ -47,13 +47,13 @@
 }
 
 .prev, .next{
-   width: 50px;
-   cursor: pointer;
+    width: 50px;
+    cursor: pointer;
 }
 .latest-book-navigation, .articles-navigation{
     text-align: center;
     a:hover
-    {
+        {
         text-decoration: none;
     }
     a{
@@ -69,9 +69,21 @@
 }
 
 .active_tab{
-    background: #D4D1D1;
     a{
-        color: black !important;
+        color: white !important;
     }
 }
 
+.book-description-content{
+    height: 315px;
+    overflow: auto;
+}
+
+.search-content{
+    width: 80%
+}
+
+.book-list-item{
+    color: black;
+    cursor: pointer;
+}

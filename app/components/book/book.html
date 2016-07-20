@@ -1,0 +1,32 @@
+<div class="media book-content" *ngIf="book">
+    <a href="#" class="pull-left"><img alt="Bootstrap Media Preview" height="400" src="{{book.image}}" class="media-object" /></a>
+    <div class="media-body">
+        <h4 class="media-heading">
+            {{book.name}} {{book.surname}}
+        </h4>
+        {{book.aa}}
+        <h2>
+            {{book.title}}
+        </h2>
+        <div class="book-description-content" [innerHTML]="book.description"></div>
+
+    </div>
+    <div>
+        <table class="table table-condensed">
+            <tbody>
+                <tr>
+                    <td>Wydawnictwo</td>
+                    <td>{{book.publisher}}</td>
+                </tr>
+                <tr>
+                    <td>Ilość Stron</td>
+                    <td>{{book.pages}}</td>
+                </tr>
+                <tr>
+                    <td>ISBN</td>
+                    <td>{{book.isbn}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
