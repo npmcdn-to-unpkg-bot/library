@@ -1,0 +1,84 @@
+<div class="registration-form">
+    <form role="form" #userRegistrationForm="ngForm">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" required [(ngModel)]="model.email" name="email" #email="ngModel">
+        </div>
+        <div [hidden]="email.valid || email.pristine" class=" myalert alert alert-danger">
+              Email jest wymagany
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Hasło:</label>
+            <input type="password" class="form-control" id="password" required [(ngModel)]="model.password" name="password" #password="ngModel">
+        </div>
+        <div [hidden]="password.valid || password.pristine" class=" myalert alert alert-danger">
+              Hasło jest wymagane
+        </div>
+
+        <div class="form-group">
+            <label for="password_confirmation">Powtórz hasło:</label>
+            <input type="password" class="form-control" id="password_confirmation" required [(ngModel)]="model.password_confirmation" name="password_confirmation" #password_confirmation="ngModel">
+        </div>
+        <div [hidden]="password_confirmation.valid || password_confirmation.pristine" class=" myalert alert alert-danger">
+              Powtórz hasło
+        </div>
+        
+        <div class="form-group">
+            <label for="pesel">Pesel:</label>
+            <input type="text" class="form-control" id="pesel" required [(ngModel)]="model.pesel" name="pesel" #pesel="ngModel">
+        </div>
+        <div [hidden]="pesel.valid || pesel.pristine" class=" myalert alert alert-danger">
+              Pesel jest wymagany
+        </div>
+        
+        <div class="form-group">
+            <label for="first_name">Imię:</label>
+            <input type="text" class="form-control" id="first_name" required [(ngModel)]="model.first_name" name="first_name" #first_name="ngModel">
+        </div>
+        <div [hidden]="first_name.valid || first_name.pristine" class=" myalert alert alert-danger">
+              Imię jest wymagane
+        </div>
+        
+
+        <div class="form-group">
+            <label for="last_name">Nazwisko:</label>
+            <input type="text" class="form-control" id="last_name" required [(ngModel)]="model.last_name" name="last_name" #last_name="ngModel">
+        </div>
+        <div [hidden]="last_name.valid || last_name.pristine" class=" myalert alert alert-danger">
+              Nazwisko jest wymagane
+        </div>
+        
+
+        <div class="form-group">
+            <label for="address">Adres:</label>
+            <input type="text" class="form-control" id="address" required [(ngModel)]="model.address" name="address" #address="ngModel">
+        </div>
+        <div [hidden]="address.valid || address.pristine" class=" myalert alert alert-danger">
+              Adres jest wymagany
+        </div>
+        
+
+        <div class="form-group">
+            <label for="city">Miejscowość:</label>
+            <input type="text" class="form-control" id="city" required [(ngModel)]="model.city" name="city" #city="ngModel">
+        </div>
+        <div [hidden]="city.valid || city.pristine" class=" myalert alert alert-danger">
+              Miejscowość jest wymagana
+        </div>
+        
+
+        <div class="form-group">
+            <label for="postal">Kod pocztowy:</label>
+            <input type="text" class="form-control" id="postal" required [(ngModel)]="model.postal" name="postal" #postal="ngModel">
+        </div>
+        <div [hidden]="postal.valid || postal.pristine" class=" myalert alert alert-danger">
+              Kod pocztowy jest wymagany
+        </div>
+        
+        <div class="form-actions">
+             <button type="submit" class="btn btn-default" (click)="registration()" [disabled]="!userRegistrationForm.form.valid">Załóż konto</button>
+        </div>
+       
+    </form>
+</div>

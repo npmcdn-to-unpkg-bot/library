@@ -15,14 +15,14 @@ export class BookComponent implements OnInit {
     
     constructor(
         private apiService: ApiService,
-        private route: ActivatedRoute) { console.log('hhhhh') }
+        private route: ActivatedRoute) { }
 
     getBook() {
         this.apiService
             .post('book', { 'id': this.id })
             .then(books => {
                 console.log('loool');
-                this.book = books.book;
+                this.book = books.result.book;
             });
     }
    

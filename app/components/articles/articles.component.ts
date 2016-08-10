@@ -23,7 +23,7 @@ export class ArticlesComponent implements OnInit {
             .then(articles => {
                 console.log('yyyyy')
                 console.log(articles)
-                this.articles = articles.articles;
+                this.articles = articles.result.articles;
                 this.max = articles.all
             });
     }

@@ -15,7 +15,6 @@ var BookComponent = (function () {
     function BookComponent(apiService, route) {
         this.apiService = apiService;
         this.route = route;
-        console.log('hhhhh');
     }
     BookComponent.prototype.getBook = function () {
         var _this = this;
@@ -23,7 +22,7 @@ var BookComponent = (function () {
             .post('book', { 'id': this.id })
             .then(function (books) {
             console.log('loool');
-            _this.book = books.book;
+            _this.book = books.result.book;
         });
     };
     BookComponent.prototype.ngOnInit = function () {

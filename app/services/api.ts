@@ -15,7 +15,7 @@ export class ApiService {
           
         return this.http.post('http://localhost:3001/api/'+action,data,{headers: headers})
                    .toPromise()
-                   .then(response => {console.log(response.json().result); return response.json().result;})
+                   .then(response => {console.log(response.json().result); return response.json();})
   }
     
 }

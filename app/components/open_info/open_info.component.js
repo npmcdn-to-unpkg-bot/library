@@ -22,7 +22,7 @@ var OpenInfoComponent = (function () {
         this.apiService
             .post('open_info', {})
             .then(function (open) {
-            _this.open_info = open;
+            _this.open_info = open.result;
         });
     };
     OpenInfoComponent.prototype.ngOnInit = function () {

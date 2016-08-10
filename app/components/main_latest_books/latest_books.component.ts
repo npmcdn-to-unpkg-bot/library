@@ -20,7 +20,7 @@ export class LatestBooksComponent implements OnInit {
         this.apiService
             .post('latest_books', {})
             .then(books => {
-                this.latest_books = books;
+                this.latest_books = books.result;
                 this.setBook();
             });
     }

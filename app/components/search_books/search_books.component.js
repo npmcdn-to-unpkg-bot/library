@@ -32,7 +32,7 @@ var SearchBooksComponent = (function () {
         this.type = this.options()[0];
         this.apiService.post('categories', {})
             .then(function (categories) {
-            _this.categories = categories;
+            _this.categories = categories.result;
         });
     };
     SearchBooksComponent.prototype.options = function () {
@@ -52,7 +52,7 @@ var SearchBooksComponent = (function () {
         }
         this.apiService.post('books', { 'type': this.type, 'text': this.text, 'page': this.page, 'category': this.category })
             .then(function (books) {
-            _this.books = books.books;
+            _this.books = books.result.books;
             _this.allPages = Array(books.all_pages).fill(1).map(function (x, i) { return i + 1; });
         });
         setTimeout(function () {

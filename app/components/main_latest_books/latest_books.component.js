@@ -23,7 +23,7 @@ var LatestBooksComponent = (function () {
         this.apiService
             .post('latest_books', {})
             .then(function (books) {
-            _this.latest_books = books;
+            _this.latest_books = books.result;
             _this.setBook();
         });
     };

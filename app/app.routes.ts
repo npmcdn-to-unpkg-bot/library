@@ -4,6 +4,7 @@ import { AppComponent} from '../app/components/app/app.component';
 import { MainComponent} from '../app/components/main/main.component';
 import { BooksComponent} from '../app/components/books/books.component';
 import { BookComponent} from '../app/components/book/book.component';
+import { RegistrationComponent} from '../app/components/registration/registration.component';
 
 export const routes: RouterConfig = [
   { path: '', component: MainComponent },
@@ -11,7 +12,8 @@ export const routes: RouterConfig = [
   { path: 'list-books', component: BooksComponent, children:[
       {path: 'book/:id', component: BookComponent},
       {path: '', component: null},
-  ] }
+  ] },
+  { path: 'registration', component: RegistrationComponent }
 ];
 
 export const APP_ROUTER_PROVIDERS = [

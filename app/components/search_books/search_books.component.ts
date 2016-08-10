@@ -30,7 +30,7 @@ export class SearchBooksComponent {
         this.type = this.options()[0];
         this.apiService.post('categories', {})
             .then(categories => {
-                this.categories = categories
+                this.categories = categories.result
             })
     }
 
@@ -51,7 +51,7 @@ export class SearchBooksComponent {
         }
         this.apiService.post('books', { 'type': this.type, 'text': this.text, 'page': this.page, 'category': this.category })
             .then(books => {
-                this.books = books.books;
+                this.books = books.result.books;
                 this.allPages = Array(books.all_pages).fill(1).map((x, i) => i + 1);
             });
         setTimeout(() => {

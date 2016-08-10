@@ -22,7 +22,7 @@ var ApiService = (function () {
         });
         return this.http.post('http://localhost:3001/api/' + action, data, { headers: headers })
             .toPromise()
-            .then(function (response) { console.log(response.json().result); return response.json().result; });
+            .then(function (response) { console.log(response.json().result); return response.json(); });
     };
     ApiService = __decorate([
         core_1.Injectable(), 

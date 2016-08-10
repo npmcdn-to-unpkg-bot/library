@@ -19,7 +19,7 @@ export class OpenInfoComponent implements OnInit {
         this.apiService
             .post('open_info', {})
             .then(open => {
-                this.open_info = open;
+                this.open_info = open.result;
             });
     }
     

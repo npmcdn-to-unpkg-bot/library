@@ -25,7 +25,7 @@ var ArticlesComponent = (function () {
             .then(function (articles) {
             console.log('yyyyy');
             console.log(articles);
-            _this.articles = articles.articles;
+            _this.articles = articles.result.articles;
             _this.max = articles.all;
         });
     };
