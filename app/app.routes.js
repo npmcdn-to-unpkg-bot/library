@@ -4,6 +4,7 @@ var main_component_1 = require('../app/components/main/main.component');
 var books_component_1 = require('../app/components/books/books.component');
 var book_component_1 = require('../app/components/book/book.component');
 var registration_component_1 = require('../app/components/registration/registration.component');
+var login_component_1 = require('../app/components/login/login.component');
 exports.routes = [
     { path: '', component: main_component_1.MainComponent },
     { path: 'home', component: main_component_1.MainComponent },
@@ -11,7 +12,8 @@ exports.routes = [
             { path: 'book/:id', component: book_component_1.BookComponent },
             { path: '', component: null },
         ] },
-    { path: 'registration', component: registration_component_1.RegistrationComponent }
+    { path: 'registration', component: registration_component_1.RegistrationComponent },
+    { path: 'login', component: login_component_1.LoginComponent },
 ];
 exports.APP_ROUTER_PROVIDERS = [
     router_1.provideRouter(exports.routes)

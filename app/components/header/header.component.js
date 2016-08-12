@@ -10,9 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var isLogged_1 = require('../../../app/services/isLogged');
+var ng2_cookies_1 = require('ng2-cookies/ng2-cookies');
 var HeaderComponent = (function () {
-    function HeaderComponent() {
+    function HeaderComponent(logged) {
+        this.logged = logged;
     }
+    HeaderComponent.prototype.User = function () {
+        return ng2_cookies_1.Cookie.get('lib_usr');
+    };
     //    set active class to element of menu
     HeaderComponent.prototype.menuClick = function (child) {
         for (var _i = 0, _a = this.menu.nativeElement.children; _i < _a.length; _i++) {
@@ -20,6 +26,10 @@ var HeaderComponent = (function () {
             test.classList = [];
         }
         this.menu.nativeElement.children[parseInt(child)].classList.add('active_tab');
+    };
+    HeaderComponent.prototype.logout = function () {
+        console.log('Wyloguj');
+        ng2_cookies_1.Cookie.set('cookie.is', '0');
     };
     __decorate([
         core_1.ViewChild('menu'), 
@@ -29,9 +39,10 @@ var HeaderComponent = (function () {
         core_1.Component({
             selector: 'header',
             templateUrl: 'app/components/header/header.html',
-            directives: [router_1.ROUTER_DIRECTIVES]
+            directives: [router_1.ROUTER_DIRECTIVES],
+            providers: [isLogged_1.IsLoggedService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [isLogged_1.IsLoggedService])
     ], HeaderComponent);
     return HeaderComponent;
 }());

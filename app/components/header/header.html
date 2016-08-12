@@ -8,8 +8,10 @@
       <li (click)="menuClick(1)"><a [routerLink]="['/list-books']">Książki</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a [routerLink]="['/registration']"><span class="glyphicon glyphicon-user"></span> Stwórz konto</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
+        <li *ngIf="logged.isLogged() == 1"><a>Zalogowany jako: <span class="glyphicon glyphicon-user"></span><strong>{{User()}}</strong></a></li>
+      <li *ngIf="logged.isLogged() == 0"><a [routerLink]="['/registration']"><span class="glyphicon glyphicon-user"></span> Stwórz konto</a></li>
+      <li *ngIf="logged.isLogged() == 0"><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
+      <li *ngIf="logged.isLogged() == 1" (click)="logout()"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Wyloguj</a></li>
     </ul>
   </div>
 </nav>
