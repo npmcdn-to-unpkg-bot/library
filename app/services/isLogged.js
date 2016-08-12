@@ -19,6 +19,9 @@ var IsLoggedService = (function () {
     }
     IsLoggedService.prototype.isLogged = function () {
         var logged = ng2_cookies_1.Cookie.get('cookie.is');
+        if (logged == null) {
+            logged = '0';
+        }
         return logged;
     };
     IsLoggedService = __decorate([

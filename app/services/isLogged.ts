@@ -10,6 +10,9 @@ export class IsLoggedService {
     
     isLogged(){
         let logged = Cookie.get('cookie.is');
+        if(logged == null){
+            logged = '0';
+        }
         return logged;
     }
     
