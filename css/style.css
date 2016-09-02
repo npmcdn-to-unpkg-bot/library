@@ -65,6 +65,9 @@
   color: black;
   cursor: pointer; }
 
+.search-li-item {
+  list-style-type: decimal; }
+
 .registration-form {
   width: 20%;
   margin-left: auto;
@@ -79,3 +82,14 @@
 .myalert {
   position: absolute !important;
   margin-top: -15px; }
+
+.searchSelect {
+  width: 50% !important;
+  float: left; }
+
+.search-input {
+  width: 50% !important;
+  float: left; }
+
+.search-button {
+  text-align: center; }

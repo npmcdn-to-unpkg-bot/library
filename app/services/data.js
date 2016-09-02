@@ -15,6 +15,9 @@ var DataService = (function () {
     DataService.prototype.searchData = function () {
         return { 'title': 'Tytuł', 'publisher': 'Wydawca', 'isbn': 'Isbn', 'category': 'Kategoria', 'author': 'Autor' };
     };
+    DataService.prototype.optionsSelect = function () {
+        return ["Tytułll", "Wydawca", "Isbn", "Kategoria", "Autor"];
+    };
     DataService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

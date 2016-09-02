@@ -2,17 +2,19 @@ import { Component, ViewChild, ElementRef} from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router'
 import { DataService } from '../../../app/services/data';
 import { ApiService } from '../../../app/services/api';
+import {SELECT_DIRECTIVES} from 'ng2-select/ng2-select';
 
 @Component({
     selector: 'search-books',
     templateUrl: 'app/components/search_books/search_books.html',
-    directives: [ROUTER_DIRECTIVES],
+    directives: [ROUTER_DIRECTIVES, SELECT_DIRECTIVES],
     providers: [DataService, ApiService]
 })
 
 export class SearchBooksComponent {
     @ViewChild('paginate') paginate: ElementRef;
     selectData = {};
+    optionsSelect = [];
     categories = {};
     allPages = []
     page = 1;
@@ -23,10 +25,11 @@ export class SearchBooksComponent {
     constructor(
         private dataService: DataService,
         private apiService: ApiService,
-        private router: Router) { }
+        private router: Router ) { }
 
     ngOnInit() {
         this.selectData = this.dataService.searchData();
+        this.optionsSelect = this.dataService.optionsSelect();
         this.type = this.options()[0];
         this.apiService.post('categories', {})
             .then(categories => {
@@ -35,7 +38,7 @@ export class SearchBooksComponent {
     }
 
     options(): Array<string> {
-        return Object.keys(this.selectData);
+        return Object.values(this.selectData);
     }
 
     getCategories(): Array<string> {
@@ -43,8 +46,10 @@ export class SearchBooksComponent {
     }
 
     setCategory(id) {
-        this.category = id;
+        if(this.categories[id.text] != null)
+                this.category = this.categories[id.text];
     }
+    
     search(search_button = true) {
         if (search_button) {
             this.page = 1;
@@ -60,7 +65,11 @@ export class SearchBooksComponent {
     }
 
     setType(data) {
-        this.type = data;
+        console.log(data)
+        for(var category in this.selectData){
+            if(this.selectData[category] == data.text)
+                this.type = category;
+        }
     }
 
     setPage(num) {
@@ -85,7 +94,7 @@ export class SearchBooksComponent {
         for (let test of this.paginate.nativeElement.children) {
             test.classList = []
         }
-        this.paginate.nativeElement.children[num].classList.add('active')
+        this.paginate.nativeElement.children[num].classList.add('active');
     }
     
     onSelect(book) {

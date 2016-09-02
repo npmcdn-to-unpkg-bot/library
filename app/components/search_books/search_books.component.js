@@ -12,12 +12,14 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var data_1 = require('../../../app/services/data');
 var api_1 = require('../../../app/services/api');
+var ng2_select_1 = require('ng2-select/ng2-select');
 var SearchBooksComponent = (function () {
     function SearchBooksComponent(dataService, apiService, router) {
         this.dataService = dataService;
         this.apiService = apiService;
         this.router = router;
         this.selectData = {};
+        this.optionsSelect = [];
         this.categories = {};
         this.allPages = [];
         this.page = 1;
@@ -29,6 +31,7 @@ var SearchBooksComponent = (function () {
     SearchBooksComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.selectData = this.dataService.searchData();
+        this.optionsSelect = this.dataService.optionsSelect();
         this.type = this.options()[0];
         this.apiService.post('categories', {})
             .then(function (categories) {
@@ -36,13 +39,14 @@ var SearchBooksComponent = (function () {
         });
     };
     SearchBooksComponent.prototype.options = function () {
-        return Object.keys(this.selectData);
+        return Object.values(this.selectData);
     };
     SearchBooksComponent.prototype.getCategories = function () {
         return Object.keys(this.categories);
     };
     SearchBooksComponent.prototype.setCategory = function (id) {
-        this.category = id;
+        if (this.categories[id.text] != null)
+            this.category = this.categories[id.text];
     };
     SearchBooksComponent.prototype.search = function (search_button) {
         var _this = this;
@@ -60,7 +64,11 @@ var SearchBooksComponent = (function () {
         }, 100);
     };
     SearchBooksComponent.prototype.setType = function (data) {
-        this.type = data;
+        console.log(data);
+        for (var category in this.selectData) {
+            if (this.selectData[category] == data.text)
+                this.type = category;
+        }
     };
     SearchBooksComponent.prototype.setPage = function (num) {
         this.page = num;
@@ -96,7 +104,7 @@ var SearchBooksComponent = (function () {
         core_1.Component({
             selector: 'search-books',
             templateUrl: 'app/components/search_books/search_books.html',
-            directives: [router_1.ROUTER_DIRECTIVES],
+            directives: [router_1.ROUTER_DIRECTIVES, ng2_select_1.SELECT_DIRECTIVES],
             providers: [data_1.DataService, api_1.ApiService]
         }), 
         __metadata('design:paramtypes', [data_1.DataService, api_1.ApiService, router_1.Router])
